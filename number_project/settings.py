@@ -26,12 +26,12 @@ SECRET_KEY = 'django-insecure-*bj6)9^(whbr85fot!v=ebvk3f9_3qhg&f_dd5vp)0&#lw1b5w
 DEBUG = True
 
 ALLOWED_HOSTS = [
-    'num2word-milan-rnsd.onrender.com',
+    'num2word-milan.onrender.com',
     '127.0.0.1'
 ]
 
 CSRF_TRUSTED_ORIGINS = [
-    'https://num2word-milan-rnsd.onrender.com'
+    'https://num2word-milan.onrender.com'
 ]
 
 
