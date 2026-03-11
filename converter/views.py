@@ -17,11 +17,11 @@ def index(request):
                 rupees_word = num2words(int(rupees), lang='en_IN').upper()
                 paise_word = num2words(int(paise), lang='en_IN').upper()
 
-                result = rupees_word + " and " + paise_word + " paise only"
+                result = rupees_word + " and " + paise_word + " PAISA ONLY"
 
             else:
                 rupees_word = num2words(int(number), lang='en_IN').upper()
-                result = rupees_word + " only"
+                result = rupees_word + " ONLY"
 
         except:
             result = "Invalid Number"
