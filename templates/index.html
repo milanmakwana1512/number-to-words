@@ -54,6 +54,25 @@ alert("Copied!")
 </script>
 <script>
 
+function speak(){
+
+let text = document.getElementById("result").innerText
+
+if(text === ""){
+alert("No text to speak")
+return
+}
+
+let speech = new SpeechSynthesisUtterance(text)
+speech.lang = "en-US"
+
+window.speechSynthesis.speak(speech)
+
+}
+
+</script>
+<script>
+
 function toggleMode(){
 
 let body = document.getElementById("body")
