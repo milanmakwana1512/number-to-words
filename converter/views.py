@@ -11,10 +11,18 @@ def index(request):
         number = request.POST.get("number")
 
         try:
-            result = num2words(int(number), lang='en_IN').upper()
+            if "." in number:
+                rupees, paise = number.split(".")
 
-            History.objects.create(number=number,words=result)
-            
+                rupees_word = num2words(int(rupees), lang='en_IN').upper()
+                paise_word = num2words(int(paise), lang='en_IN').upper()
+
+                result = rupees_word + " and " + paise_word + " paise only"
+
+            else:
+                rupees_word = num2words(int(number), lang='en_IN').upper()
+                result = rupees_word + " only"
+
         except:
             result = "Invalid Number"
 
