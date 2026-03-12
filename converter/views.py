@@ -12,20 +12,24 @@ def index(request):
 
         try:
             if "." in number:
-                rupees, paise = number.split(".")
 
-                rupees_word = num2words(int(rupees), lang='en_IN').upper()
-                paise_word = num2words(int(paise), lang='en_IN').upper()
+                number = float(number)
 
-                result = rupees_word + " and " + paise_word + " PAISA ONLY"
+                rupees = int(number)
+                paise = int(round((number - rupees) * 100))
+
+                rupees_word = num2words(rupees, lang='en_IN').upper()
+                paise_word = num2words(paise, lang='en_IN').upper()
+
+                result = rupees_word + " RUPEES AND " + paise_word + " PAISA ONLY"
 
             else:
                 rupees_word = num2words(int(number), lang='en_IN').upper()
-                result = rupees_word + " ONLY"
+                result = rupees_word + " RUPEES ONLY"
 
         except:
             result = "Invalid Number"
 
     history = History.objects.all().order_by('-date')[:5]
 
-    return render(request,"index.html",{"result":result,"history":history})
+    return render(request, "index.html", {"result": result, "history": history})
