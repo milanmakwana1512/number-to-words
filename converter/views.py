@@ -27,6 +27,9 @@ def index(request):
                 rupees_word = num2words(int(number), lang='en_IN').upper()
                 result = rupees_word + " RUPEES ONLY"
 
+     # ⭐ History save
+            History.objects.create(number=number, words=result)
+
         except:
             result = "Invalid Number"
 
